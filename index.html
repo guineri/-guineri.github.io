@@ -4,17 +4,29 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
+
 	$.getJSON("data.json", function(data) {
 		var html = '<table class="styled-table">';
 		html += '<thead><tr>';
 		var flag = 0;
 		html += '<th>Posicao</th>'
-		$.each(data[0], function(index, value){
-		    html += '<th>'+index+'</th>';
-		});
+		html += '<th>Time</th>'
+		var rodada_atual = data['current']
+		var parcial = data['parcial']
+
+		for (var i = 1; i <= rodada_atual; i++) {
+			html += '<th>';
+			if (parcial == 1) {
+				html += '*';
+			}
+			html += i + '</th>'
+		}
+		html += '<th>Total</th>'
 		html += '</tr></thead><tbody>';
+
 		var pos = 1;
-		 $.each(data, function(index, value){
+		$.each(data['times'], function(index, value){
+			console.log(value)
 		    html += '<tr>';
 			if (pos <= 3) {
 				html += '<td class="good">';
@@ -27,12 +39,20 @@ $(document).ready(function () {
 			}
 			html += pos+'</td>';
 			pos += 1;
-		    $.each(value, function(index2, value2){
-		        html += '<td>'+value2+'</td>';
-		    });
-		    html += '</tr>';
-		 });
-		 html += '</tbody></table>';
+
+			html += '<td><div>' 
+			html += '<img width="25" src="'+value['url_escudo']+'" alt="Italian Trulli">'
+			html +=	'<spam style="font-weight: bold;">  ' + value['time'] + '</spam><spam style="font-size:0.5em"> ('+value['cartoleiro']+')</spam>'
+			html += '</div></td>';
+
+			for (var i = 1; i <= rodada_atual; i++) {
+				html += '<td>'+value[i]+'</td>';
+			}
+
+			html += '<td>'+value["total"]+'</td>';
+			html += '</tr>';
+		});
+		html += '</tbody></table>';
 		 $("#table-local").html(html);
 	});    
 });

@@ -8,17 +8,16 @@
 }
 
 .good {
-    background-color: #ccffdd;
+    color: #009933;
 	font-weight: bold;
 }
 
 .ok {
-    background-color: #ffffe6;
 	font-weight: bold;
 }
 
 .bad {
-    background-color: #ffd6cc;
+    color: #cc3300;
 	font-weight: bold;
 }
 
