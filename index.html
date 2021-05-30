@@ -1,29 +1,53 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	var data;
-	$.getJSON("data.json", function(json) {
-    	console.log(json); // this will show the info it in firebug console
-		data = json
-	});
 
+<script type="text/javascript">
 $(document).ready(function () {
-    var html = '<table class="table table-striped">';
-    html += '<tr>';
-    var flag = 0;
-    $.each(data[0], function(index, value){
-        html += '<th>'+index+'</th>';
-    });
-    html += '</tr>';
-     $.each(data, function(index, value){
-         html += '<tr>';
-        $.each(value, function(index2, value2){
-            html += '<td>'+value2+'</td>';
-        });
-        html += '<tr>';
-     });
-     html += '</table>';
-     $('body').html(html);
+	$.getJSON("data.json", function(data) {
+		var html = '<table class="styled-table">';
+		html += '<thead><tr>';
+		var flag = 0;
+		html += '<th>Posicao</th>'
+		$.each(data[0], function(index, value){
+		    html += '<th>'+index+'</th>';
+		});
+		html += '</tr></thead><tbody>';
+		var pos = 1;
+		 $.each(data, function(index, value){
+		    html += '<tr>';
+			if (pos <= 3) {
+				html += '<td class="good">';
+			} else {
+				if (pos >= 13) {
+					html += '<td class="bad">';
+				} else {
+					html += '<td class="ok">';
+				}
+			}
+			html += pos+'</td>';
+			pos += 1;
+		    $.each(value, function(index2, value2){
+		        html += '<td>'+value2+'</td>';
+		    });
+		    html += '</tr>';
+		 });
+		 html += '</tbody></table>';
+		 $("#table-local").html(html);
+	});    
 });
 </script>
+
+<html>
+	<head>
+		<title>Liga B.O.E.I.A.</title>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+		<h1>Liga B.O.E.I.A.</h1>
+		<div class="container">
+			<div id="table-local"/>
+		</div>
+	</body>
+</html>
+
