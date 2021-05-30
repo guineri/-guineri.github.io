@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 			html += '<td><div>' 
 			html += '<img width="25" src="'+value['url_escudo']+'" alt="Italian Trulli">'
-			html +=	'<spam style="font-weight: bold;">  ' + value['time'] + '</spam><spam style="font-size:0.5em"> ('+value['cartoleiro']+')</spam>'
+			html +=	'<a href="'+value['time_url']+'" style="font-weight: bold;">  ' + value['time'] + '</a><spam style="font-size:0.5em"> ('+value['cartoleiro']+')</spam>'
 			html += '</div></td>';
 
 			for (var i = 1; i <= rodada_atual; i++) {
