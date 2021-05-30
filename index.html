@@ -16,8 +16,8 @@ $(document).ready(function () {
 
 		for (var i = 1; i <= rodada_atual; i++) {
 			html += '<th>';
-			if (parcial == 1) {
-				html += '*';
+			if (rodada_atual == i) {
+				html += parcial;
 			}
 			html += i + '</th>'
 		}
