@@ -6,7 +6,9 @@
 $(document).ready(function () {
 
 	$.getJSON("data.json", function(data) {
+
 		var html = '<table class="styled-table">';
+		html += '<spam style="font-weight: bold;"> Tabela atualizada em: ' + data['updated_at'] + ' </spam>'
 		html += '<thead><tr>';
 		var flag = 0;
 		html += '<th>Posicao</th>'
@@ -26,7 +28,6 @@ $(document).ready(function () {
 
 		var pos = 1;
 		$.each(data['times'], function(index, value){
-			console.log(value)
 		    html += '<tr>';
 			if (pos <= 3) {
 				html += '<td class="good">';
@@ -53,7 +54,8 @@ $(document).ready(function () {
 			html += '</tr>';
 		});
 		html += '</tbody></table>';
-		 $("#table-local").html(html);
+		html += '<p style="font-weight: bold;"> (*) Rodada em curso (Pontos parciais). </p>'
+		$("#table-local").html(html);
 	});    
 });
 </script>
