@@ -53,3 +53,7 @@
     margin-left: auto;
     margin-right: auto; 
 }
+
+th {
+    cursor: pointer;
+}
