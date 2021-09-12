@@ -27,8 +27,8 @@ $(document).ready(function () {
 			}
 			html += i + '</th>'
 		}
-		html += '<th>Total Rodada 1</th>'
-		html += '<th>Total Rodada 1</th>'
+		html += '<th>Rodada 1</th>'
+		html += '<th>Rodada 2</th>'
 		html += '</tr></thead><tbody>';
 
 		var pos = 1;
@@ -55,8 +55,9 @@ $(document).ready(function () {
 				html += '<td>'+value[i]+'</td>';
 			}
 
-			html += '<td>'+value["total"]+'</td>';
+			html += '<td>'+value["total1"]+'</td>';
 			html += '<td>'+value["total2"]+'</td>';
+			html += '<td>'+value["total"]+'</td>';
 			html += '</tr>';
 		});
 		html += '</tbody></table>';
