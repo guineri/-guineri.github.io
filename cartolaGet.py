@@ -110,7 +110,6 @@ def getTabelaCompleta(pontos_p_r, rodada_atual, lim_col, prefix, time_partials):
 	tabela_obj['updated_at'] = str(datetime.datetime.strftime(now, '%d/%m/%Y %H:%M:%S'))
 	tabela_obj['times'] = []
 
-	print(tabela_ordenada)
 	for row in tabela_ordenada:
 		time_object = {}
 		time_object['time_url'] = "https://cartolafc.globo.com/#!/time/" + str(boeia[row[0]][0])  + "/" + str(rodada_atual)
