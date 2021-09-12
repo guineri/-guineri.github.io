@@ -20,7 +20,7 @@ $(document).ready(function () {
 		var rodada_atual = data['current']
 		var parcial = data['parcial']
 
-		for (var i = 1; i <= rodada_atual; i++) {
+		for (var i = rodada_atual-1; i <= rodada_atual; i++) {
 			html += '<th>';
 			if (rodada_atual == i) {
 				html += parcial;
@@ -52,9 +52,8 @@ $(document).ready(function () {
 			html +=	'<a href="'+value['time_url']+'" style="font-weight: bold;">  ' + value['time'] + '</a><spam style="font-size:0.5em"> ('+value['cartoleiro']+')</spam>'
 			html += '</div></td>';
 
-			for (var i = 1; i <= rodada_atual; i++) {
-				html += '<td>'+value[i]+'</td>';
-			}
+			html += '<td>'+value['1']+'</td>';
+			html += '<td>'+value['2']+'</td>';
 
 			html += '<td>'+value["total1"]+'</td>';
 			html += '<td>'+value["total2"]+'</td>';
