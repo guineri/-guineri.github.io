@@ -5,38 +5,46 @@ from os import path
 import os
 import datetime
 
-turno1 = {"Mateus": 1259.86,
-		 "Philippe": 1035.92,
-		 "Lucas": 1129.01,
-		 "Lucas Lopes": 1221.7,
-		 "Rafael Paiva": 969.69,
-		 "Bruno": 1179.94,
-		 "Bernardo": 1011.37,
-		 "Guilherme": 1188.36,
-		 "Anderson": 1056.63,
-		 "Vinícius": 834.719,
-		 "Alexandre": 922.25,
-		 "Cneri": 873.54,
-		 "Bismarck": 1119.03,
-		 "Dedé": 856.15,
-		 "Farlin": 1082.07
+turno1 = {"Mateus": 0,
+		 "Philippe": 0,
+		 "Lucas": 0,
+		 "Lucas Lopes": 0,
+		 "Bruno": 0,
+		 "Bernardo": 0,
+		 "Guilherme": 0,
+		 "Anderson": 0,
+		 "Vinícius": 0,
+		 "Alexandre": 0,
+		 "Bismarck": 0,
+		 "Farlin": 0
+}
+
+mes = { "Mateus": 0,
+		 "Philippe": 0,
+		 "Lucas": 0,
+		 "Lucas Lopes": 0,
+		 "Bruno": 0,
+		 "Bernardo": 0,
+		 "Guilherme": 0,
+		 "Anderson": 0,
+		 "Vinícius": 0,
+		 "Alexandre": 0,
+		 "Bismarck": 0,
+		 "Farlin": 0
 }
 
 boeia = {"Mateus": ["1132784", "https://s2.glbimg.com/pkzuRLsPtYPY-Ji8Xk6AFHBv5zo=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_188/escudo/6b/14/31/008ef9c265-84b5-4e00-94d8-345d9d589b6b20210525081431", "FlaDelRey"],
 		 "Philippe": ["3181812", "https://s2.glbimg.com/Bjyewyr55XEjG1F-rnf_kuMxrlI=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_166/escudo/fb/39/45/00905c944b-c962-43bc-8b1d-4316994f5bfb20200726173945", "NABUCODONOSO F. C."],
 		 "Lucas": ["1584372", "https://s2.glbimg.com/OsRjlmBvDw9Ilg_JivKVkyVlJgI=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_173/escudo/90/15/53/0080652d80-4c17-4940-95b0-292baf15d59020200809221553", "LucasFlaResende"],
-		 "Lucas Lopes": ["25568007", "https://s2.glbimg.com/P2uMvBzspeg9JIL9P2g4SKxuv5M=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_183/escudo/1f/43/43/00e705cf3e-736f-4223-b541-30dab9d0b51f20210427124343", "GWR Solutions"],
-		 "Rafael Paiva": ["330706", "https://s2.glbimg.com/KyEPCHx-j_CAMXrEkjoDRyEwHgg=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_141/escudo/ab/00/25/0002109047-9fa7-4f12-baec-a221179caaab20190425130025", "Paivense Cabuloso"],
+		 "Lucas Lopes": ["25568007", "https://s2.glbimg.com/P2uMvBzspeg9JIL9P2g4SKxuv5M=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_183/escudo/1f/43/43/00e705cf3e-736f-4223-b541-30dab9d0b51f20210427124343", "Raja Mil Grau"],
 		 "Bruno": ["114639", "https://s2.glbimg.com/KyEPCHx-j_CAMXrEkjoDRyEwHgg=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_141/escudo/ab/00/25/0002109047-9fa7-4f12-baec-a221179caaab20190425130025", "Resistência Azul  F. C."],
 		 "Bernardo": ["32791", "https://s2.glbimg.com/GPt3ZH1w-0F2UbTG3cPoCbnIB9w=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_183/escudo/78/13/31/00a7c82419-cb7f-46ae-b01f-3875118f367820210427131331", "Becofe F.C"],
 		 "Guilherme": ["26714009", "https://s2.glbimg.com/QJZUPSOOh3t-Yi4DX0JtIwSfesc=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_173/escudo/93/31/24/0040c1daf5-8473-4344-b579-c02b29369b9320200810143124", "AUGuizolaFC"],
 		 "Anderson": ["28653", "https://s2.glbimg.com/6J_oLCX9oLVzSHFaNdScpGbB0eo=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_188/escudo/3d/09/09/0074c78412-cdf5-4ca8-8624-83fa95db703d20210525220909", "Bera da Praia F.C."],
 		 "Vinícius": ["2914856", "https://s2.glbimg.com/tFy6U7u-w8YSG6iX6k3l0NH5uXU=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_186/escudo/eb/33/44/00f808e39b-1813-4052-8d8e-8edb66b4e2eb20210513183344", "CabulosoFC86225"],
 		 "Alexandre": ["26742415", "https://s2.glbimg.com/IqDkR8z_xpagzbof0vryNilYiBA=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_175/escudo/5c/33/21/008e28948f-f1b9-4c62-91fc-292be2a6ea5c20200812183321", "SC Colaboni"],
-		 "Cneri": ["2580856", "https://s2.glbimg.com/8lzNQ-d-5KJ2WdSnjxWAGaZpU3Q=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_191/escudo/02/27/01/005f580794-7b89-447a-a1c6-c6433f7ab70220210529122701", "SJDR NTC"],
-		 "Bismarck":["223725", "https://s2.glbimg.com/9kj50rE46ttxbFU0dkhhxM2jJNQ=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_108/escudo/fc/06/27/006b729cd9-e97f-4ae4-a66b-c580b98a71fc20180412120627", "Los Oto Patamar FC"],
-		 "Dedé":["19750020", "https://s2.glbimg.com/fn_ogvadQ5b8_kFGwUXTHJ5SNzA=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_189/escudo/1b/19/43/00a9b0937c-8dbf-4643-8b8e-aaaf1753071b20210528091943", "Casa do Viajante FC"],
-		 "Farlin":["35168", "https://s2.glbimg.com/iZOCN3GayfC0TkOf_XFj__sHvwM=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_189/escudo/7a/51/23/00638989fa-284b-4e8b-9004-246802d12e7a20210526205123", "Piripake EC"]}
+		 "Bismarck":["223725", "https://s2.glbimg.com/9kj50rE46ttxbFU0dkhhxM2jJNQ=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_108/escudo/fc/06/27/006b729cd9-e97f-4ae4-a66b-c580b98a71fc20180412120627", "Tropa do Malvadeza Cartola Clube"],
+		 "Farlin":["35168", "https://s2.glbimg.com/iZOCN3GayfC0TkOf_XFj__sHvwM=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_189/escudo/7a/51/23/00638989fa-284b-4e8b-9004-246802d12e7a20210526205123", "Cruzentus"]}
 
 base_url = "https://api.cartolafc.globo.com/time/id"
 base_url_pontuacao = "https://api.cartolafc.globo.com/atletas/pontuados"
@@ -118,13 +126,13 @@ def getTabelaCompleta(pontos_p_r, rodada_atual, lim_col, prefix, time_partials):
 		time_object["time"] = boeia[row[0]][2]
 		for i in range(1, 3):
 			if i == rodada_atual and prefix == "*":
-				time_object[str(i)] = str(round(row[i], 2)) + "["+str(time_partials[row[0]])+"]"
+				time_object[str(i)] = str(round(row[i], 2)) #+ "["+str(time_partials[row[0]])+"]"
 			else:
 				time_object[str(i)] = str(round(row[i], 2))
 		time_object["total"] = str(round(row[-1], 2))
-		time_object["total1"] = str(round(turno1[row[0]],2))
-		time_object["total2"] = str(round(row[-1] - turno1[row[0]],2))
-
+		time_object["total1"] = time_object["total"] # str(round(turno1[row[0]],2))
+		time_object["total2"] = 0 #str(round(row[-1] - turno1[row[0]],2))
+		time_object["mes"] = str(round(row[-1], 2) - mes[row[0]])
 		tabela_obj['times'].append(time_object)
 
 	with open("./data.json", 'w') as f:
@@ -202,8 +210,8 @@ def getPartials(time_info):
 ###############################################################################
 ###############################################################################
 
-rodada_atual = 20
-partials = True
+rodada_atual = 3
+partials = False
 
 json_rodada_atual = "rodadas/rodada_" + str(rodada_atual) + ".json"
 if not path.exists(json_rodada_atual):
