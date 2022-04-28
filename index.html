@@ -27,8 +27,9 @@ $(document).ready(function () {
 			}
 			html += i + '</th>'
 		}
-		html += '<th>Rodada 1</th>'
-		html += '<th>Rodada 2</th>'
+		html += '<th>Abril</th>'
+		html += '<th>Turno 1</th>'
+		html += '<th>Turno 2</th>'
 		html += '<th>Total</th>'
 		html += '</tr></thead><tbody>';
 
@@ -54,7 +55,7 @@ $(document).ready(function () {
 
 			html += '<td>'+value['1']+'</td>';
 			html += '<td>'+value['2']+'</td>';
-
+			html += '<td>'+value["mes"]+'</td>';
 			html += '<td>'+value["total1"]+'</td>';
 			html += '<td>'+value["total2"]+'</td>';
 			html += '<td>'+value["total"]+'</td>';
