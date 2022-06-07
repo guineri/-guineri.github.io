@@ -19,18 +19,18 @@ turno1 = {"Mateus": 0,
 		 "Farlin": 0
 }
 
-mes = { "Mateus": 0,
-		 "Philippe": 0,
-		 "Lucas": 0,
-		 "Lucas Lopes": 0,
-		 "Bruno": 0,
-		 "Bernardo": 0,
-		 "Guilherme": 0,
-		 "Anderson": 0,
-		 "Vinícius": 0,
-		 "Alexandre": 0,
-		 "Bismarck": 0,
-		 "Farlin": 0
+mes = { "Mateus": 633.12, 		#307.92,
+		 "Philippe": 631.47, 	#335.911,
+		 "Lucas": 590.0, 		#286.43,
+		 "Lucas Lopes": 668.21,	#349.71,
+		 "Bruno": 627.67,		#347.42,
+		 "Bernardo": 584.36,	#256.85,
+		 "Guilherme": 628.07,	#331.2,
+		 "Anderson": 691.2,		#393.77,
+		 "Vinícius": 420.2,		#188.31,
+		 "Alexandre": 556.77,	#292,
+		 "Bismarck": 546.06,	#263.31,
+		 "Farlin": 600.44,		#298.03
 }
 
 boeia = {"Mateus": ["1132784", "https://s2.glbimg.com/pkzuRLsPtYPY-Ji8Xk6AFHBv5zo=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_188/escudo/6b/14/31/008ef9c265-84b5-4e00-94d8-345d9d589b6b20210525081431", "FlaDelRey"],
@@ -132,7 +132,7 @@ def getTabelaCompleta(pontos_p_r, rodada_atual, lim_col, prefix, time_partials):
 		time_object["total"] = str(round(row[-1], 2))
 		time_object["total1"] = time_object["total"] # str(round(turno1[row[0]],2))
 		time_object["total2"] = 0 #str(round(row[-1] - turno1[row[0]],2))
-		time_object["mes"] = str(round(row[-1], 2) - mes[row[0]])
+		time_object["mes"] = str(round(row[-1] - mes[row[0]], 2))
 		tabela_obj['times'].append(time_object)
 
 	with open("./data.json", 'w') as f:
@@ -210,7 +210,7 @@ def getPartials(time_info):
 ###############################################################################
 ###############################################################################
 
-rodada_atual = 3
+rodada_atual = 9
 partials = False
 
 json_rodada_atual = "rodadas/rodada_" + str(rodada_atual) + ".json"
