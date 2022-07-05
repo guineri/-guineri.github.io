@@ -19,18 +19,18 @@ turno1 = {"Mateus": 0,
 		 "Farlin": 0
 }
 
-mes = { "Mateus": 633.12, 		#307.92,
-		 "Philippe": 631.47, 	#335.911,
-		 "Lucas": 590.0, 		#286.43,
-		 "Lucas Lopes": 668.21,	#349.71,
-		 "Bruno": 627.67,		#347.42,
-		 "Bernardo": 584.36,	#256.85,
-		 "Guilherme": 628.07,	#331.2,
-		 "Anderson": 691.2,		#393.77,
-		 "Vinícius": 420.2,		#188.31,
-		 "Alexandre": 556.77,	#292,
-		 "Bismarck": 546.06,	#263.31,
-		 "Farlin": 600.44,		#298.03
+mes = { "Mateus": 1001.74, #633.12, 		#307.92,
+		 "Philippe": 1110.02, #631.47, 	#335.911,
+		 "Lucas": 1001.58, #590.0, 		#286.43,
+		 "Lucas Lopes": 1089.28, #668.21,	#349.71,
+		 "Bruno": 1103.98, #627.67,		#347.42,
+		 "Bernardo": 1033.78, #584.36,	#256.85,
+		 "Guilherme": 1072.06, #628.07,	#331.2,
+		 "Anderson": 1101.14, #691.2,		#393.77,
+		 "Vinícius": 770.74, #420.2,		#188.31,
+		 "Alexandre": 1001.8, #556.77,	#292,
+		 "Bismarck": 980.46, # 546.06,	#263.31,
+		 "Farlin": 1027.3, #600.44,		#298.03
 }
 
 boeia = {"Mateus": ["1132784", "https://s2.glbimg.com/pkzuRLsPtYPY-Ji8Xk6AFHBv5zo=/https://s3.glbimg.com/v1/AUTH_58d78b787ec34892b5aaa0c7a146155f/cartola_svg_188/escudo/6b/14/31/008ef9c265-84b5-4e00-94d8-345d9d589b6b20210525081431", "FlaDelRey"],
@@ -210,7 +210,7 @@ def getPartials(time_info):
 ###############################################################################
 ###############################################################################
 
-rodada_atual = 9
+rodada_atual = 15
 partials = False
 
 json_rodada_atual = "rodadas/rodada_" + str(rodada_atual) + ".json"
