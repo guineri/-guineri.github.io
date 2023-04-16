@@ -20,16 +20,15 @@ $(document).ready(function () {
 		var rodada_atual = data['current']
 		var parcial = data['parcial']
 
-		for (var i = rodada_atual-1; i <= rodada_atual; i++) {
-			html += '<th>';
-			if (rodada_atual == i) {
-				html += parcial;
-			}
-			html += i + '</th>'
-		}
-		html += '<th>Novembro</th>'
-		html += '<th>Turno 1</th>'
-		html += '<th>Turno 2</th>'
+		//for (var i = rodada_atual-1; i <= rodada_atual; i++) {
+		//	html += '<th>';
+		//	if (rodada_atual == i) {
+		//		html += parcial;
+		//	}
+		//	html += i + '</th>'
+		//}
+		html += '<th>1</th>'
+		html += '<th>' + data['mes_nome'] + '</th>'
 		html += '<th>Total</th>'
 		html += '</tr></thead><tbody>';
 
@@ -54,10 +53,8 @@ $(document).ready(function () {
 			html += '</div></td>';
 
 			html += '<td>'+value['1']+'</td>';
-			html += '<td>'+value['2']+'</td>';
+			//html += '<td>'+value['2']+'</td>';
 			html += '<td>'+value["mes"]+'</td>';
-			html += '<td>'+value["total1"]+'</td>';
-			html += '<td>'+value["total2"]+'</td>';
 			html += '<td>'+value["total"]+'</td>';
 			html += '</tr>';
 		});
