@@ -20,14 +20,14 @@ $(document).ready(function () {
 		var rodada_atual = data['current']
 		var parcial = data['parcial']
 
-		//for (var i = rodada_atual-1; i <= rodada_atual; i++) {
-		//	html += '<th>';
-		//	if (rodada_atual == i) {
-		//		html += parcial;
-		//	}
-		//	html += i + '</th>'
-		//}
-		html += '<th>1</th>'
+		for (var i = rodada_atual-1; i <= rodada_atual; i++) {
+			html += '<th>';
+			if (rodada_atual == i) {
+				html += parcial;
+			}
+			html += i + '</th>'
+		}
+		//html += '<th>1</th>'
 		html += '<th>' + data['mes_nome'] + '</th>'
 		html += '<th>Total</th>'
 		html += '</tr></thead><tbody>';
